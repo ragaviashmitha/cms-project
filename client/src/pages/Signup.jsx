@@ -19,6 +19,14 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
+    if (password !== confirmPassword) {
+    Swal.fire({
+      title: "Error",
+      text: "Passwords do not match",
+      icon: "error"
+    });
+    return; // Stop submission
+  }
     let db = localStorage.getItem('db');
     if (db === null) {
       db = {

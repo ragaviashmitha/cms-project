@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 // import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -72,7 +73,7 @@ export default function SignIn() {
                 <p className="text-sm text-center text-[#7A6E68] mt-4">
                     Don’t have an account?{' '}
                     <a href="/signup" className="text-[#D6B1A1] hover:underline">
-                        Sign up
+                       <Link to={'/signup'}>Sign up</Link>
                     </a>
                 </p>
             </form>
