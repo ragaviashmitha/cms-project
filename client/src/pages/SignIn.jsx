@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ export default function SignIn() {
                 text: 'Login successful!',
                 icon: 'success',
             });
-            // navigate('/dashboard'); // Or wherever you want to go after login
+            navigate('/dashboard'); // Or wherever you want to go after login
         } else {
             Swal.fire({
                 title: 'Error',
