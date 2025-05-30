@@ -10,6 +10,8 @@ import Home from './pages/Home.jsx'
 import AboutUs from './pages/AboutUs.jsx'
 import Dashboard from './Dashboard.jsx'
 import Team from './pages/Team.jsx'
+import UploadPaper from './pages/UploadPaper.jsx'
+import ViewPaper from './pages/ViewPaper.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -22,6 +24,8 @@ createRoot(document.getElementById('root')).render(
     <Route path='/aboutus' element={<AboutUs/>}/>
     <Route path='/dashboard' element={<Dashboard/>}/>
     <Route path='/team' element={<Team/>}/>
+    <Route path='/upload' element={<UploadPaper/>}/>
+    <Route path='/view' element={<ViewPaper/>}/>
    </Routes>
   </BrowserRouter>,
 );
