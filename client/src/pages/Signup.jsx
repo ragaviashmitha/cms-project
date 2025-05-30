@@ -38,7 +38,7 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
         text: "User created successfully",
         icon: "success"
       });
-      navigate('/home');
+      navigate('/dashboard');
     } else {
       const parsedDb = JSON.parse(db);
       const existingUser = parsedDb.users.find((user) => user.email === email);
@@ -56,7 +56,7 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
           text: "User created successfully",
           icon: "success"
         });
-        navigate('/login');
+        // navigate('/login');
       }
     }
   }
