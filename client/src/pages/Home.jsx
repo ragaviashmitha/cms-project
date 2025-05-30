@@ -17,12 +17,7 @@ export default function Home() {
         >
           Get Started
         </Link>
-        {/* <Link
-          to="/aboutus"
-          className="px-6 py-2 border border-[#D6B1A1] text-[#2D2D2D] rounded hover:bg-[#FDF8F5] transition"
-        >
-          Sign In
-        </Link> */}
+        
       </div>
     </div>
   );

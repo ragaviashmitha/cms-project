@@ -21,7 +21,7 @@ export default function Team() {
               </div>
             </div>
             <h2 className="text-xl font-semibold text-[#2D2D2D]">Sree Devi R M</h2>
-            <p className="text-[#7A6E68] mt-2">Co-Creator & Developer</p>
+            <p className="text-[#7A6E68] mt-2">Creator & Developer</p>
           </div>
 
           {/* Ashmitha Ragavi */}
@@ -38,7 +38,7 @@ export default function Team() {
               </div>
             </div>
             <h2 className="text-xl font-semibold text-[#2D2D2D]">Ashmitha Ragavi S</h2>
-            <p className="text-[#7A6E68] mt-2">Co-Creator & Developer</p>
+            <p className="text-[#7A6E68] mt-2">Creator & Developer</p>
           </div>
         </div>
       </div>
