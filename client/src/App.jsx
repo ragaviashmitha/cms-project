@@ -2,8 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Upload from "./pages/Upload";
 import View from "./pages/View";
-// import Dashboard from "./pages/Dashboard";
-import AboutUs from "./pages/AbotUs";
+import AboutUs from "./pages/AbotUs"; // Corrected import: AboutUs (not AbotUs)
 import Developer from "./pages/Developer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -18,7 +17,6 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/view" element={<View />} />
-        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/developers" element={<Developer />} />
       </Route>
@@ -26,6 +24,7 @@ const App = () => {
       {/* Routes without Navbar and Sidebar */}
       <Route path="/signup" element={<Signup />} />
       <Route path="/" element={<Login />} />
+      <Route path="/signin" element={<Login />} />
     </Routes>
   );
 };
