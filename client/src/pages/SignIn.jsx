@@ -32,6 +32,7 @@ export default function SignIn() {
     }
   };
 
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0c29] via-[#2d258a] to-[#2f2f66]">
       
@@ -91,3 +92,4 @@ export default function SignIn() {
     </div>
   );
 }
+

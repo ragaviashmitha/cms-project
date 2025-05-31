@@ -36,6 +36,7 @@ const Signup = () => {
     // Get existing users from localStorage or empty array
     const users = JSON.parse(localStorage.getItem("cmsUsers")) || [];
 
+
     // Check if username or email already exists
     const userExists = users.some(
       (user) => user.username === username || user.email === email
@@ -43,6 +44,7 @@ const Signup = () => {
     if (userExists) {
       alert("Username or email already taken. Please choose another.");
       return;
+
     }
 
     // Add new user to array and save back to localStorage
