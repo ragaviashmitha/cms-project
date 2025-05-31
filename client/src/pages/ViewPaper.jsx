@@ -1,8 +1,10 @@
  import React from 'react';
+import BasicLayouts from '../layout/BasicLayouts';
 
 const ViewPaper = ({ papers = [] }) => (
+  <BasicLayouts>
   <div className=" min-h-screen bg-[#F4E8E2] p-6">
-    <h2 className="text-2xl font-bold mb-4">Submitted Research Papers</h2>
+    <h2 className="text-2xl font-bold mb-4 text">Submitted Research Papers</h2>
     {papers.length === 0 ? (
       <p className="text-gray-600">No papers uploaded yet.</p>
     ) : (
@@ -19,5 +21,6 @@ const ViewPaper = ({ papers = [] }) => (
       </ul>
     )}
   </div>
+  </BasicLayouts>
 );
 export default ViewPaper;

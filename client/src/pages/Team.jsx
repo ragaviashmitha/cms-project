@@ -1,7 +1,9 @@
 import React from 'react';
+import BasicLayouts from '../layout/BasicLayouts';
 
 export default function Team() {
   return (
+    <BasicLayouts>
     <div className="min-h-screen bg-[#F4E8E2] py-12 px-6">
       <div className="max-w-4xl mx-auto bg-[#FDF8F5] border border-[#EAD6CC] p-8 rounded-xl shadow-lg">
         <h1 className="text-3xl font-bold text-center text-[#2D2D2D] mb-10">Meet Our Team</h1>
@@ -43,5 +45,6 @@ export default function Team() {
         </div>
       </div>
     </div>
+    </BasicLayouts>
   );
 }

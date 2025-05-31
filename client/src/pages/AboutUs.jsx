@@ -1,7 +1,10 @@
 import React from 'react';
+import BasicLayouts from '../layout/BasicLayouts';
 
 export default function AboutUs() {
   return (
+    <BasicLayouts>
+   
     <div className="min-h-screen bg-[#F4E8E2] text-[#2D2D2D] px-6 py-12">
       <div className="max-w-3xl mx-auto bg-[#FDF8F5] border border-[#EAD6CC] p-8 rounded-xl shadow-md">
         <h1 className="text-3xl font-bold mb-4 text-center text-[#2D2D2D]">About Us</h1>
@@ -26,5 +29,6 @@ export default function AboutUs() {
 
       </div>
     </div>
+     </BasicLayouts>
   );
 }

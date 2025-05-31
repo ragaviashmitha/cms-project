@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import BasicLayouts from "../layout/BasicLayouts";
 
 export default function Home() {
   return (
+    <>
+    <BasicLayouts>
     <div className="min-h-screen bg-[#F4E8E2] flex flex-col items-center justify-center px-4 text-center">
       <h1 className="text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-4">
         Welcome to Research Paper Management CMS
@@ -12,7 +15,7 @@ export default function Home() {
 
       <div className="flex gap-4 flex-wrap justify-center">
         <Link
-          to="/aboutus"
+          to="/dashboard"
           className="px-6 py-2 bg-[#D6B1A1] text-white rounded shadow hover:bg-[#B98F7F] transition"
         >
           Get Started
@@ -20,5 +23,8 @@ export default function Home() {
         
       </div>
     </div>
+    
+    </BasicLayouts>
+    </>
   );
 }

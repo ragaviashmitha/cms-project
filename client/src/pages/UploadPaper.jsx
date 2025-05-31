@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router';
+import BasicLayouts from '../layout/BasicLayouts';
 
 const UploadPaper = ({ papers, setPapers }) => {
   const [formData, setFormData] = useState({
@@ -25,6 +26,7 @@ const UploadPaper = ({ papers, setPapers }) => {
   };
 
   return (
+    <BasicLayouts>
     <div className="min-h-screen bg-[#F4E8E2] flex flex-col items-center justify-center px-4 text-center">
       <h2 className="text-2xl font-bold mb-6">Upload Research Paper</h2>
       <form
@@ -68,6 +70,7 @@ const UploadPaper = ({ papers, setPapers }) => {
           </div>
       </form>
     </div>
+    </BasicLayouts>
   );
 };
 
