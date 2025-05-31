@@ -1,29 +1,24 @@
 
 
-
-
-
-
 import { BrowserRouter, Route, Routes } from 'react-router'
-import SignIn from './pages/Signin.jsx'
+import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
 import Home from './pages/Home.jsx'
-import AboutUs from './pages/AboutUs.jsx'
-import Dashboard from './Dashboard.jsx'
-import Team from './pages/Team.jsx'
 import UploadPaper from './pages/UploadPaper.jsx'
 import ViewPaper from './pages/ViewPaper.jsx'
+import AbotUs from './pages/AbotUs.jsx'
+import Developer from './pages/Developer.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
    
    <Routes>
-    <Route path='/' element={<SignIn/>}/>
+    <Route path='/' element={<Login/>}/>
     <Route path='/signup' element={<Signup/>}/>
     <Route path='/home' element={<Home/>}/>
-    <Route path='/aboutus' element={<AboutUs/>}/>
+    <Route path='/aboutus' element={<AbotUs/>}/>
     <Route path='/dashboard' element={<Dashboard/>}/>
-    <Route path='/team' element={<Team/>}/>
+    <Route path='/developer' element={<Developer/>}/>
     <Route path='/upload' element={<UploadPaper/>}/>
     <Route path='/view' element={<ViewPaper/>}/>
    </Routes>
