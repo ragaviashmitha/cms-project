@@ -13,13 +13,13 @@ export default function Team() {
           <div className="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow border border-[#EAD6CC] group relative">
             <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-[#EAD6CC]">
               <img
-                src="/sree.jpg"
+                src="src\images\sree.jpg"
                 alt="img"
                 className="w-full h-full object-cover group-hover:opacity-20 transition duration-300"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                <p className="text-sm text-[#2D2D2D] font-semibold">Frontend Developer</p>
-                <p className="text-xs text-[#7A6E68] mt-1">React.js | HTML | TAILWINDCSS |JAVA SCRIPTS</p>
+                <p className="text-sm text-[#2D2D2D] font-bold">Frontend Developer</p>
+                <p className="text-xs text-[#7A6E68] mt-3 font-semibold">React.js | HTML | TAILWINDCSS |JAVA SCRIPTS</p>
               </div>
             </div>
             <h2 className="text-xl font-semibold text-[#2D2D2D]">Sree Devi R M</h2>
@@ -30,13 +30,13 @@ export default function Team() {
           <div className="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow border border-[#EAD6CC] group relative">
             <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-[#EAD6CC]">
               <img
-                src="/ashmitha.jpg"
-                alt="Ashmitha Ragavi S"
+                src="src\images\Ash.jpg"
+                alt="img"
                 className="w-full h-full object-cover group-hover:opacity-20 transition duration-300"
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                <p className="text-sm text-[#2D2D2D] font-semibold">Frontend Developer</p>
-                <p className="text-xs text-[#7A6E68] mt-1">React.js | HTML | TAILWINDCSS |JAVA SCRIPT </p>
+                <p className="text-sm text-[#2D2D2D] font-bold">Frontend Developer</p>
+                <p className="text-xs text-[#7A6E68] mt-3 font-semibold">React.js | HTML | TAILWINDCSS |JAVA SCRIPT </p>
               </div>
             </div>
             <h2 className="text-xl font-semibold text-[#2D2D2D]">Ashmitha Ragavi S</h2>

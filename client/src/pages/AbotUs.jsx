@@ -1,6 +1,6 @@
 import React from 'react';
 
- function AboutUs() {
+ function AbotUs() {
   return (
     <div className="min-h-screen bg-[#F4E8E2] text-[#2D2D2D] px-6 py-12">
       <div className="max-w-3xl mx-auto bg-[#FDF8F5] border border-[#EAD6CC] p-8 rounded-xl shadow-md">
@@ -28,4 +28,4 @@ import React from 'react';
     </div>
   );
 }
-export default AboutUs;
+export default AbotUs;

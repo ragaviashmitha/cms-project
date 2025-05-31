@@ -1,30 +1,40 @@
-import { Link } from "react-router-dom";
-import BasicLayouts from "../layout/BasicLayouts";
 
-export default function Home() {
-  return (
-    <>
-    <BasicLayouts>
-    <div className="min-h-screen bg-[#F4E8E2] flex flex-col items-center justify-center px-4 text-center">
-      <h1 className="text-4xl md:text-5xl font-bold text-[#2D2D2D] mb-4">
-        Welcome to Research Paper Management CMS
-      </h1>
-      <p className="text-[#5A504A] text-lg md:text-xl max-w-2xl mb-8">
-        A simple platform to upload, manage, and track your academic research papers. Built with React and TailwindCSS for a smooth and responsive experience.
-      </p>
+import { useContext } from "react";
+import { AuthContext } from "../routes/AuthContext";
+import { Navigate } from "react-router";
 
-      <div className="flex gap-4 flex-wrap justify-center">
-        <Link
-          to="/dashboard"
-          className="px-6 py-2 bg-[#D6B1A1] text-white rounded shadow hover:bg-[#B98F7F] transition"
-        >
-          Get Started
-        </Link>
-        
-      </div>
-    </div>
+const Home = () => {
+  const { isAuth } = useContext(AuthContext);
+
+  const handleAccess = (sectionName) => {
+    if (!isAuth) {
+      alert(`Please log in to access the "${sectionName}" section.`);
+      return;
+    }
+    alert(`Access granted to "${sectionName}"`);
     
-    </BasicLayouts>
-    </>
+  };
+   return (
+    <div className="p-6 space-y-8">
+      <section className="text-center">
+        <h2 className="text-4xl font-bold text-blue-700">Welcome to Research Paper CMS</h2>
+        <p className="mt-4 text-lg text-gray-700">Organize and manage research papers with ease.</p>
+      </section>
+
+      <section className="grid md:grid-cols-3 gap-6 text-center">
+        {["Upload Papers", "View Papers", "Dashboard"].map((name) => (
+          <div
+            key={name}
+            onClick={() => handleAccess(name)}
+            className="cursor-pointer bg-white p-6 rounded-lg shadow hover:shadow-lg border hover:border-blue-500"
+          >
+            <h3 className="text-xl font-semibold text-blue-600">{name}</h3>
+            <p className="text-sm text-gray-600 mt-2">Click to access {name}</p>
+          </div>
+        ))}
+      </section>
+    </div>
   );
-}
+};
+
+export default Home;
