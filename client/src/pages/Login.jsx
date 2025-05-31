@@ -1,26 +1,28 @@
 import { useContext, useState } from "react";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../routes/AuthContext";
-import { useNavigate, useLocation, Link } from "react-router-dom";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
   const [credentials, setCredentials] = useState({ username: "", password: "" });
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/home";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const { username, password } = credentials;
 
-    // Load users from localStorage
     const users = JSON.parse(localStorage.getItem("cmsUsers")) || [];
 
-    // Check if user exists and password matches
-    const userFound = users.find(user => user.username === username && user.password === password);
+    const userFound = users.find(
+      (user) =>
+        user.username.toLowerCase() === username.trim().toLowerCase() &&
+        user.password === password.trim()
+    );
 
     if (userFound) {
-      login(username);  // update context state
+      login(userFound.username);
       navigate(from, { replace: true });
     } else {
       alert("Invalid username or password. Please try again.");
@@ -29,13 +31,8 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 rounded shadow-md w-96"
-      >
-        <h2 className="text-2xl font-bold mb-4 text-center text-blue-700">
-          Sign In
-        </h2>
+      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-96">
+        <h2 className="text-2xl font-bold mb-4 text-center text-blue-700">Sign In</h2>
         <input
           type="text"
           placeholder="Username"
@@ -59,11 +56,11 @@ const Login = () => {
           Login
         </button>
         <p className="text-sm text-center text-[#7A6E68] mt-4">
-                    Don’t have an account?{' '}
-                    <a href="/signup" className="text-[#D6B1A1] hover:underline">
-                       <Link to={'/signup'}>Sign up</Link>
-                    </a>
-                </p>
+          Don’t have an account?{" "}
+          <Link to="/signup" className="text-[#D6B1A1] hover:underline">
+            Sign up
+          </Link>
+        </p>
       </form>
     </div>
   );
