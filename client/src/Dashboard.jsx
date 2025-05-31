@@ -1,4 +1,5 @@
 
+
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ export default function Dashboard() {
   const handleLogout = () => {
     
     console.log('User logged out');
-    navigate('/');
+    navigate('/login');
   };
 
   return (
@@ -71,7 +72,7 @@ export default function Dashboard() {
               }}
               className="mt-4 bg-[#D6B1A1] hover:bg-[#C49A8A] text-white px-4 py-2 rounded-md transition-colors duration-200"
             >
-              <Link to={'/'}>
+              <Link to={'/login'}>
               Logout
               </Link>
             </button>
