@@ -1,168 +1,137 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-
-
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
-import Swal from 'sweetalert2';
-
-export default function Signup() {
-  const [name, setName] = useState('');
-  const [gender, setGender] = useState('');
-  const [age, setAge] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+const Signup = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    age: "",
+    gender: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
-const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { username, email, password, confirmPassword } = formData;
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    if (password !== confirmPassword) {
-    Swal.fire({
-      title: "Error",
-      text: "Passwords do not match",
-      icon: "error"
-    });
-    return; // Stop submission
-  }
-    let db = localStorage.getItem('db');
-    if (db === null) {
-      db = {
-        users: [{ name, gender, age, email, password }]
-      };
-      localStorage.setItem('users', JSON.stringify(db));
-      Swal.fire({
-        title: "Success",
-        text: "User created successfully",
-        icon: "success"
-      });
-      navigate('/dashboard');
-    } else {
-      const parsedDb = JSON.parse(db);
-      const existingUser = parsedDb.users.find((user) => user.email === email);
-      if (existingUser) {
-        Swal.fire({
-          title: "Invalid",
-          text: "User already exists",
-          icon: "error"
-        });
-      } else {
-        parsedDb.users.push({ name, gender, age, email, password });
-        localStorage.setItem('users', JSON.stringify(parsedDb));
-        Swal.fire({
-          title: "Success",
-          text: "User created successfully",
-          icon: "success"
-        });
-        // navigate('/login');
-      }
+    if (!username || !email || !password || !confirmPassword || !age || !gender) {
+      alert("Please fill in all fields.");
+      return;
     }
-  }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    // Basic email format validation (simple regex)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    // Get existing users from localStorage or empty array
+    const users = JSON.parse(localStorage.getItem("cmsUsers")) || [];
+
+
+    // Check if username or email already exists
+    const userExists = users.some(
+      (user) => user.username === username || user.email === email
+    );
+    if (userExists) {
+      alert("Username or email already taken. Please choose another.");
+      return;
+
+    }
+
+    // Add new user to array and save back to localStorage
+    users.push({ username, email, password });
+    localStorage.setItem("cmsUsers", JSON.stringify(users));
+
+    alert("User registered! Now you can log in.");
+    navigate("/signin");
+  };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#F4E8E2]">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-[#FDF8F5] p-8 rounded-xl shadow-lg w-full max-w-sm border border-[#EAD6CC]"
+        className="bg-white p-8 rounded shadow-md w-96"
       >
-        <h2 className="text-2xl font-bold mb-6 text-center text-[#2D2D2D]">Sign Up</h2>
-
-        <div className="mb-4">
-          <input
-            type="text"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            required
-            className="w-full px-4 py-2 border border-[#EAD6CC] rounded focus:outline-none focus:ring-2 focus:ring-[#D6B1A1] placeholder-[#7A6E68] text-[#2D2D2D]"
-            placeholder="Full Name"
-          />
-        </div>
-
-        <div className="mb-4">
-          <select
-            value={gender}
-            onChange={e => setGender(e.target.value)}
-            required
-            className="w-full px-4 py-2 border border-[#EAD6CC] rounded bg-white focus:outline-none focus:ring-2 focus:ring-[#D6B1A1] text-[#2D2D2D]"
-          >
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <div className="mb-4">
-          <input
-            type="number"
-            value={age}
-            onChange={e => setAge(e.target.value)}
-            required
-            className="w-full px-4 py-2 border border-[#EAD6CC] rounded focus:outline-none focus:ring-2 focus:ring-[#D6B1A1] placeholder-[#7A6E68] text-[#2D2D2D]"
-            placeholder="Age"
-            min="1"
-          />
-        </div>
-
-        <div className="mb-4">
-          <input
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-            className="w-full px-4 py-2 border border-[#EAD6CC] rounded focus:outline-none focus:ring-2 focus:ring-[#D6B1A1] placeholder-[#7A6E68] text-[#2D2D2D]"
-            placeholder="Email"
-          />
-        </div>
-
-       <div className="mb-4 relative">
-  <input
-    type={showPassword ? "text" : "password"}
-    value={password}
-    onChange={e => setPassword(e.target.value)}
-    required
-    className="w-full px-4 py-2 pr-10 border border-[#EAD6CC] rounded focus:outline-none focus:ring-2 focus:ring-[#D6B1A1] placeholder-[#7A6E68] text-[#2D2D2D]"
-    placeholder="Password"
-  />
-  <button
-    type="button"
-    onClick={() => setShowPassword(!showPassword)}
-    className="absolute right-3 top-2 text-sm text-[#7A6E68] focus:outline-none"
-  >
-    {showPassword ? "Hide" : "Show"}
-  </button>
-</div>
-
-       <div className="mb-6 relative">
-  <input
-    type={showConfirmPassword ? "text" : "password"}
-    value={confirmPassword}
-    onChange={e => setConfirmPassword(e.target.value)}
-    required
-    className="w-full px-4 py-2 pr-10 border border-[#EAD6CC] rounded focus:outline-none focus:ring-2 focus:ring-[#D6B1A1] placeholder-[#7A6E68] text-[#2D2D2D]"
-    placeholder="Confirm Password"
-  />
-  <button
-    type="button"
-    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-    className="absolute right-3 top-2 text-sm text-[#7A6E68] focus:outline-none"
-  >
-    {showConfirmPassword ? "Hide" : "Show"}
-  </button>
-</div>
+        <h2 className="text-2xl font-bold mb-4 text-green-700 text-center">
+          Sign Up
+        </h2>
+        <input
+          type="text"
+          placeholder="Username"
+          value={formData.username}
+          onChange={(e) =>
+            setFormData({ ...formData, username: e.target.value })
+          }
+          className="w-full px-4 py-2 border rounded mb-4"
+          required
+        />
+        <select
+          value={formData.gender}
+          onChange={e => setFormData({ ...formData, gender: e.target.value })}
+          required
+          className="w-full px-4 py-2 border border-[#EAD6CC] rounded bg-white focus:outline-none focus:ring-2 focus:ring-[#D6B1A1] text-[#2D2D2D]"
+        >
+          <option value="" disabled>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <br />
+        <br />
+        <input
+          type="number"
+          placeholder="Age"
+          value={formData.age}
+          onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+          className="w-full px-4 py-2 border rounded mb-4"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          className="w-full px-4 py-2 border rounded mb-4"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={(e) =>
+            setFormData({ ...formData, password: e.target.value })
+          }
+          className="w-full px-4 py-2 border rounded mb-4"
+          required
+        />
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={formData.confirmPassword}
+          onChange={(e) =>
+            setFormData({ ...formData, confirmPassword: e.target.value })
+          }
+          className="w-full px-4 py-2 border rounded mb-6"
+          required
+        />
         <button
           type="submit"
-          className="w-full bg-[#D6B1A1] text-white py-2 rounded hover:bg-[#B98F7F] transition-colors font-semibold"
+          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
         >
-          Create new account
+          Register
         </button>
-        
       </form>
     </div>
   );
-}
+};
 
-
-
+export default Signup;
