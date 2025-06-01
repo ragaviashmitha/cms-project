@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import backgroundImg from "../images/background.jpg"; // Ensure this path is correct
 
 const BasicLayouts = () => {
   const navigate = useNavigate();
@@ -16,8 +17,10 @@ const BasicLayouts = () => {
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FDF8F5] text-[#2D2D2D]">
-      <Navbar />
+<div
+  className="min-h-screen flex flex-col bg-cover bg-center "
+  style={{ backgroundImage: `url(${backgroundImg})` }}
+>      <Navbar />
 
       {/* Mobile Sidebar */}
       {sidebarOpen && (
@@ -26,7 +29,7 @@ const BasicLayouts = () => {
             className="absolute inset-0 bg-black opacity-50"
             onClick={toggleSidebar}
           ></div>
-          <aside className="relative bg-[#F4E8E2] w-64 h-full p-6 shadow-lg z-50">
+          <aside className="relative bg-[#211814] w-64 h-full p-6 shadow-lg z-50">
             <button
               onClick={toggleSidebar}
               className="absolute top-4 right-4 text-2xl font-bold"
@@ -59,7 +62,7 @@ const BasicLayouts = () => {
                     handleLogout();
                     toggleSidebar();
                   }}
-                  className="mt-4 bg-[#D6B1A1] hover:bg-[#C49A8A] text-white px-4 py-2 rounded-md"
+                  className="mt-4 bg-[#030201] hover:bg-[#030202] text-white px-4 py-2 rounded-md"
                 >
                   Logout
                 </button>

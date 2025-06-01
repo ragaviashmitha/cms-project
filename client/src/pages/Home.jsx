@@ -15,21 +15,25 @@ const Home = () => {
     
   };
    return (
-    <div className="p-6 space-y-8">
-      <section className="text-center">
-        <h2 className="text-4xl font-bold text-blue-700">Welcome to Research Paper CMS</h2>
-        <p className="mt-4 text-lg text-gray-700">Organize and manage research papers with ease.</p>
+     <div className="max-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black via-gray-900 to-black text-white px-4 py-10">
+      <section className="text-center mb-12">
+        <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-yellow-400 to-orange-500">
+          Welcome to Research Paper CMS
+        </h2>
+        <p className="mt-4 text-white">
+          Organize and manage research papers with ease.
+        </p>
       </section>
 
-      <section className="grid md:grid-cols-3 gap-6 text-center">
+      <section className="flex flex-col gap-6 w-full max-w-md text-center">
         {["Upload Papers", "View Papers", "Dashboard"].map((name) => (
           <div
             key={name}
             onClick={() => handleAccess(name)}
-            className="cursor-pointer bg-white p-6 rounded-lg shadow hover:shadow-lg border hover:border-blue-500"
+            className="cursor-pointer bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg hover:shadow-xl border border-white/20 hover:border-pink-500 transition-all duration-200"
           >
-            <h3 className="text-xl font-semibold text-blue-600">{name}</h3>
-            <p className="text-sm text-gray-600 mt-2">Click to access {name}</p>
+            <h3 className="text-xl font-semibold text-white">{name}</h3>
+            <p className="text-sm text-gray-300 mt-2">Click to access {name}</p>
           </div>
         ))}
       </section>

@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-800 text-white px-6 py-4 flex justify-between items-center shadow-md">
+    <nav className="bg-gray-800 text-white px-6 py-4 flex justify-between items-center shadow-md">
       <Link to="/home" className="text-xl font-bold">
         CMS
       </Link>
@@ -40,14 +40,14 @@ const Navbar = () => {
         {!isAuth ? (
           <Link
             to="/signin"
-            className="bg-white text-blue-800 px-3 py-1 rounded"
+            className="px-4 py-1 rounded-md font-bold text-white bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 hover:opacity-90 transition-all"
           >
             Login
           </Link>
         ) : (
           <button
             onClick={handleLogout}
-            className="bg-red-500 px-3 py-1 rounded"
+            className="px-4 py-1 rounded-md font-semibold text-white bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 hover:opacity-90 transition-all"
           >
             Logout
           </button>

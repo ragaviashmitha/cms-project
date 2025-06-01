@@ -48,8 +48,8 @@ const Upload = () => {
   };
 
   return (
-    <div className="p-8 max-w-3xl mx-auto bg-white shadow-md rounded mt-6">
-      <h1 className="text-2xl font-bold mb-4 text-center">Upload Research Paper</h1>
+    <div className="p-5 min-w-3xl mx-auto mt-5 ">
+      <h1 className="text-2xl font-semibold mb-8 text-center">Upload Research Paper</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -103,20 +103,20 @@ const Upload = () => {
           accept="application/pdf"
         />
         <div className="flex justify-between">
-        <button
-          type="submit"
-          className=" bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700"
-        >
-          Submit
-        </button>
-        <button
+          <button
+            type="submit"
+            className=" bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700"
+          >
+            Submit
+          </button>
+          <button
             type="button"
             onClick={() => navigate("/view")}
             className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
           >
             View Papers
           </button>
-          </div>
+        </div>
       </form>
     </div>
   );

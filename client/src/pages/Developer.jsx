@@ -1,17 +1,19 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import bgabImg from '../images/bgab.jpg'; // Ensure this path is correct
 
 export default function Developer() {
   return (
     // <Navbar>
-      <div className="min-h-screen bg-[#F4E8E2] py-12 px-6">
-        <div className="max-w-4xl mx-auto bg-[#FDF8F5] border border-[#EAD6CC] p-8 rounded-xl shadow-lg">
-          <h1 className="text-3xl font-bold text-center text-[#2D2D2D] mb-10">Meet the Developers</h1>
+      <div className="max-h-screen  bg-center bg-cover py-20 px-7 bg-no-repeat"
+      style={{backgroundImage: `url(${bgabImg})` 
+        }}>
+          <h1 className="text-3xl font-bold text-center text-[#0c0b0b] mb-10">Meet the Developers</h1>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-10">
             {/* Sree Devi */}
-            <div className="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow border border-[#EAD6CC] group relative">
-              <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-[#EAD6CC]">
+            <div className="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow border border-[#ed0bb8] group relative">
+              <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-[#ef0ac9]">
                 <img
                   src="/src/images/sree.jpg"
                   alt="Sree Devi"
@@ -27,8 +29,8 @@ export default function Developer() {
             </div>
 
             {/* Ashmitha Ragavi */}
-            <div className="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow border border-[#EAD6CC] group relative">
-              <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-[#EAD6CC]">
+            <div className="flex flex-col items-center text-center bg-white p-6 rounded-lg shadow border border-[#59f715] group relative">
+              <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-[#e9f509]">
                 <img
                   src="/src/images/Ash.jpg"
                   alt="Ashmitha Ragavi"
@@ -44,7 +46,7 @@ export default function Developer() {
             </div>
           </div>
         </div>
-      </div>
+
     // </Navbar>
   );
 }
